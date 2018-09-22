@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>mydemo</title>
+	<meta charset="utf-8">
+
+	<script src="bootstrap-v3.3.7/jquery.min.js" type="text/javascript"></script>
+	<script src="bootstrap-v3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="bootstrap-v3.3.7/css/bootstrap.min.css">
+
+	<style type="text/css">
+	div.panel-heading a{
+		color: #FFFFFF;
+		font-size: 18px;
+	}
+	div.panel-heading a:hover{
+		color: #FFFFFF;
+	}
+	.panel-body .row{
+		padding: 3px;
+		font-size: 16px;
+	}
+	.nav{
+		text-align: center;
+	}
+	.myfooter{
+		padding: 40px 0;
+		color: #999;
+		text-align: center;
+		background-color: #f9f9f9;
+		border-top: 1px solid #e5e5e5;
+	}
+</style>
+
+</head>
+<body>
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<a href="http://news.xmu.edu.cn/" target="_blank" title="http://news.xmu.edu.cn/">厦门大学新闻网 <span class="badge"></span></a>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-9">
+								<a type="button" data-toggle="modal" data-target="#mymodal" data-index="1" title="关于调整防御暴雨洪水应急响应级别的通知">
+									关于调整防御暴雨洪水应急响应级别…… <span class="label label-warning">new</span>
+								</a>
+							</div>
+							<div class="col-md-3">
+								2018-09-05
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-9">
+								<a href="" target="_blank" title="关于调整防御暴雨洪水应急响应级别的通知">
+									<span class="badge">new</span> 关于调整防御暴雨洪水应急响应级别……
+								</a>
+							</div>
+							<div class="col-md-3">
+								2018-09-05
+							</div>
+						</div>						
+						<div class="row">
+							<div class="col-md-9">
+								<a href="" target="_blank" title="关于调整防御暴雨洪水应急响应级别的通知">
+									<span class="badge">new</span> 关于调整防御暴雨洪水应急响应级别……
+								</a>
+							</div>
+							<div class="col-md-3">
+								2018-09-05
+							</div>
+						</div>						
+						<div class="row">
+							<div class="col-md-9">
+								<a href="" target="_blank" title="关于调整防御暴雨洪水应急响应级别的通知">
+									<span class="badge">new</span> 关于调整防御暴雨洪水应急响应级别……
+								</a>
+							</div>
+							<div class="col-md-3">
+								2018-09-05
+							</div>
+						</div>						
+					</div>
+
+					<div class="nav">
+						<nav aria-label="page navigation">
+							<ul class="pagination">
+								<li>
+									<a href="#" aria-label="Previous">
+										<span aria-hidden="true">&laquo;</span>
+									</a>
+								</li>
+								<li class="active"><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li>
+									<a href="#" aria-label="Next">
+										<span aira-hidden="true">&raquo;</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="panel panel-success">
+					<div class="panel-heading">321</div>
+					<div class="panel-body">654</div>
+				</div>				
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-info">
+					<div class="panel-heading">321</div>
+					<div class="panel-body">654</div>
+				</div>				
+			</div>
+			<div class="col-md-6">
+				<div class="panel panel-warning">
+					<div class="panel-heading">321</div>
+					<div class="panel-body">654</div>
+				</div>				
+			</div>
+		</div>
+		
+	</div>
+
+	<footer class="myfooter">
+		<p>
+			<a href="http://getbootstrap.com">Bootstrap</a>
+			<a href="https://twitter.com/mdo">@AlexChai</a>
+		</p>
+		<p><a href="#">Back to top</a></p>
+	</footer>
+
+	<div class="modal fade bs-example-modal-lg" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h2 class="modal-title" id="myModalLabel">Modal 标题</h2>
+				</div>
+
+				<div class="modal-body">
+					<!-- 新闻正文 -->
+					<form>
+						<textarea class="form-control" name="" id="newsContent" style="min-width: 90%" rows="18">
+							全校各单位：\r\n根据《厦门大学防洪防台风应急预案（2016年10月修订）》，决定将防御暴雨洪水应急响应等级由Ⅱ级降为Ⅲ级。现将有关工作通知如下：
+
+							一、各单位要及时启动应急预案，按照各自职责，认真做好防御工作。
+
+							二、各单位要加大对重点区域和隐患点等危险区域的巡查力度，及时处置可能发生的险情灾情，确保师生员工生命财产安全。
+
+							三、各单位要加强值守。相关人员要密切关注天气情况，密切监视水情雨情，做好防御可能出现的暴雨洪水和抢险救灾工作。如遇紧急情况，及时向学校总值班室（电话：2186110）报告。
+
+							特此通知。
+
+							学校办公室
+							2018年8月30日							
+						</textarea>						
+					</form>					
+					<!-- 新闻图片 -->
+					<div class="row" style="text-align: right;">
+						<div class="col-md-4">
+							<a href="#" class="thumbnail">
+								<img src="..." alt="...">
+							</a>
+						</div>						
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script>
+		$('a[type=button]').on('click', function() {
+			/* Act on the event */
+			alert($(this).attr('title'));
+			alert($(this).attr('data-index'));
+
+			$.ajax({
+				url: '',
+				type: 'POST',
+				dataType: 'json',
+				data: {"id": $(this).attr('data-index')},
+				success: function(){
+					alert($(this).attr('data-index'));
+				}
+			});
+			
+
+			$('#myModalLabel').text($(this).attr('title'));
+			$('#newsContent').text($(this).attr('title'));
+
+		});
+
+		function LoadModalData(data) {
+			// 加载消息标题
+			$('#myModalLabel').text(data['title']);
+
+			// 加载消息内容，先清空
+			$('#newsContent').empty();
+			$('#newsContent').append('<p>'+data['content'].replace('\r\n','</p><p>')+'</p>');
+
+			// 加载消息图片，拼接,3张图片一行
+			imgLink = str(data['img']).split(";");
+			imgContent = '';
+			console.log(imgLink);
+			for (var i = 0; i < imgLink.length; i++) {
+				if (i>2) {
+					imgContent += '<div class="row" style="text-align: right;">'
+				}
+				imgContent += '<div class="col-md-4"><a href="#" class="thumbnail"><img src="'+imgLink[i]+'" alt="80*80">'+'</a></div>';
+				if (i>2) {
+					imgContent += '</div>'
+				}				
+			}
+			console.log(imgContent);
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+{% with source='jwc' %}
+<div class="nav">
+    <nav aria-label="page navigation">
+        <ul class="pagination">
+            <!--翻页：上一页+第一页，固定，是否可点击-->
+            {% if jwc_li.has_previous %}
+            <li>
+                <a href="?source={{ source }}&page={{ jwc_li.previous_page_number }}">
+                    <span aria-hidden="true">&laquo;</span>
+                    上一页
+                </a>
+            </li>
+            <li><a href="?source={{ source }}&page=1">1</a></li>
+            {% else %}
+            <li class="disabled">
+                <a>
+                    <span aria-hidden="true">&laquo;</span>
+                    上一页
+                </a>
+            </li>
+            <li class="active"><span>1</span></li>
+            {% endif %}
+
+            <!--如果显示起始页码（即当前页码-2）大于2，则显示前省略号-->
+            {% if jwc_li.number|add:-2 > 2 %}
+            <li><span>...</span></li>
+            {% endif %}
+
+            <!--循环所有页码，但只显示当前页码及其前后2页，跳过首尾页-->
+            {% for i in jwc_li.paginator.page_range %}
+            {% if i >= jwc_li.number|add:-2 and i <= jwc_li.number|add:2 and i != 1 and i != jwc_li.paginator.num_pages %}
+            {% if jwc_li.number == i %}
+            <li class="active"><span>{{ i }}</span></li>
+            {% else %}
+            <li><a href="?source={{ source }}&page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+
+            <!--如果显示结束页码（即当前页码+2）小于（总页数-1），则显示后省略号-->
+            {% if jwc_li.number|add:2 < jwc_li.paginator.num_pages|add:-1 %}
+            <li><span>...</span></li>
+            {% endif %}
+
+            <!--翻页：下一页+最后一页，固定，是否可点击-->
+            {% if jwc_li.has_next %}
+            <li><a href="?source={{ source }}&page={{ jwc_li.paginator.num_pages }}">{{ jwc_li.paginator.num_pages }}</a></li>
+            <li class="next">
+                <a href="?source={{ source }}&page={{ jwc_li.next_page_number }}" aria-label="Next">
+                    下一页
+                    <span aira-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% else %}
+            <li class="active"><span>{{ jwc_li.paginator.num_pages }}</span></li>
+            <li class="disabled">
+                <a>
+                    下一页
+                    <span aira-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+{% endwith%}

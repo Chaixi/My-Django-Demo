@@ -1,0 +1,571 @@
+<!-- <#assign S_URL=request.contextPath /> -->
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8"><link rel="icon" href="https://static.jianshukeji.com/highcharts/images/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+</style>
+
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+
+<script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+<script src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>
+<script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+
+<!-- <script src="./uploadImg/layer-v3.1.1/layer/layer.js"></script>
+<script src="./uploadImg/layui-v2.3.0/layui/layui.all.js"></script> -->
+ <link rel="stylesheet" href="C:/Users/workstation/Desktop/uploadImg/layui-v2.3.0/layui/css/layui.css">
+
+<style type="text/css">
+
+	blockquote:hover{
+		color: #009E94;
+		background-color: #ececec;
+		/*border: 1px solid #f2f2f2;*/
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		border-left: 6px solid #eee;
+	}
+
+</style>
+<!-- <script src="${S_URL}/static/styles/layui/layui.js"></script>
+<script src="${S_URL}/static/scripts/layer/layer.js"></script>
+<link rel="stylesheet" href="${S_URL}/static/styles/layui/css/layui.css"> -->
+</head>
+
+<body>
+	<div>
+		<div class="layui-row" style="margin-top: 20px;">
+			<div class="layui-col-md4" style="padding: 10px;border: 10;margin: 10;padding:10px;">
+				<div class="layui-card">
+					<div class="layui-row" style="text-align: center;">
+						<div id="chart5" style="min-width:360px;min-height:380px;"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="layui-col-md5" style="padding: 10px;border: 10;margin: 10;padding:10px;">
+				<div class="layui-card">
+					<div class="layui-row" style="text-align: center;">
+						<div id="chart6" style="min-width:400px;min-height:380px;"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="layui-col-md2" style="padding: 10px;border: 10;margin: 10;padding:10px;">
+				<div class="layui-card">
+					<div class="layui-card-header" style="background-color: #F8F8F8;font-family: '黑体'"><h2>统计信息</h2></div>
+					<div class="layui-card-body">
+						<div style="min-height:310px;">
+							<div class="layui-row">
+								<blockquote class="layui-elem-quote" style="height: 50px;">
+									<p style="text-align: left;text-indent: 0em;font-size: 20px;font-weight: bold;font-family: '黑体'">本月销售金额</p>
+									<div class="layui-col-md10">
+										<p style="text-align: left;text-indent: 0em;font-size: 30px;font-weight: bold;font-family: '黑体';margin-top: 8px;">¥13780.5</p>
+									</div>
+									<div class="layui-col-md2">
+										<span style="margin-top: 8px;" class="layui-badge layui-bg-blue"><h3>+24%</h3></span>
+									</div>
+								</blockquote>
+							</div>
+
+							<div class="layui-row">
+								<blockquote class="layui-elem-quote" style="height: 50px;">
+									<p style="text-align: left;text-indent: 0em;font-size: 20px;font-weight: bold;font-family: '黑体'">本月销售单量</p>
+									<div class="layui-col-md5">
+										<p style="text-align: left;text-indent: 0em;font-size: 30px;font-weight: bold;font-family: '黑体';margin-top: 8px;">2343</p>
+									</div>
+									<div class="layui-col-md3">
+										<span style="margin-top: 8px;" class="layui-badge"><h3>-8.3%</h3></span>
+									</div>
+								</blockquote>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="layui-row">
+			<div class="layui-col-md4" style="padding: 10px;border: 10;margin: 10;padding:10px;">
+				<div class="layui-card">
+					<div class="layui-card-header" style="background-color: #F8F8F8;font-family: '黑体'"><h2>年度销售概览</h2></div>
+					<div class="layui-card-body">
+						<div class="layui-row" style="text-align: center;">
+							<div class="layui-col-md9">
+								<div id="chart7" style="min-width:350px;min-height:380px;"></div>
+							</div>
+							<div class="layui-col-md3">
+								<p style="text-align: left;text-indent: 2em;font-size: 20px;font-weight: bold;font-family: '黑体';margin-top:10px;">年度销售概览</p>
+								<p style="text-align: left;text-indent: 4em;font-size: 15px;font-family: '黑体'">（单位：万）</p><br>
+								<p style="text-align: left;text-indent: 2em;font-size: 30px;font-weight: bold;font-family: '黑体'">625.4</p><br><br><br>
+								<p style="text-indent: 1em;font-size: 18px;font-weight: bold;font-color:#F2F2F2;font-family: '黑体'"><span class="layui-badge-dot layui-bg-blue"></span><font color="#585858"> 销售金额 </font><font color="#1E9FFF"> 1236 </font></p><br>
+								<p style="text-indent: 1em;font-size: 18px;font-weight: bold;font-color:#F2F2F2;font-family: '黑体'"><span class="layui-badge-dot layui-bg-black"></span><font color="#585858"> 增长情况 </font><font color="#1E9FFF"> 1568 </font></p><br>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="layui-col-md5">
+				<div class="layui-col-md6" style="padding: 10px;border: 10;margin: 10;padding:10px;">
+					<div class="layui-card">
+						<div class="layui-card-header" style="background-color: #F8F8F8;font-family: '黑体'"><h2>销售种类分布饼图</h2></div>
+						<div class="layui-card-body">
+							<div id="chart2" style="min-width:300px;min-height: 380px;"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="layui-col-md6" style="padding: 10px;border: 10;margin: 10;padding:10px;">
+					<div class="layui-card">
+						<div class="layui-card-header" style="background-color: #F8F8F8;font-family: '黑体'"><h2>销售品牌分布饼图</h2></div>
+						<div class="layui-card-body">
+							<div id="chart3" style="min-width:300px;min-height: 380px;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- <div class="layui-col-md3" style="padding: 10px;border: 10;margin: 10;padding:10px;">
+				<div class="layui-card" >
+					<div class="layui-card-header" style="background-color: #F8F8F8;font-family: '黑体'"><h2>标题</h2></div>
+					<div class="layui-card-body">
+						<div id="chart4" style="min-width:350px;min-height: 420px;"></div>
+					</div>
+				</div>
+			</div> -->
+
+			<div class="layui-col-md2" style="padding: 10px;border: 10;margin: 10;padding:10px;">
+				<div class="layui-card">
+					<div class="layui-card-header" style="background-color: #F8F8F8;font-family: '黑体'"><h2>待处理消息 <span class="layui-badge">99+</span></h2></div>
+					<div class="layui-card-body">
+						<div style="min-height:380px;">
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// $('blockquote').on('mouseover', function(){
+		// 	$(this).css("background-color", "#F8F8F8");
+		// });
+
+		// $('blockquote').on('mouseout', function(){
+		// 	$(this).css("background-color", "white");
+		// });
+            // Build the chart
+            // 年度销售概览
+   //          var chart1 = Highcharts.chart('chart1', {
+   //          	chart: {
+   //          		type: 'column'
+   //          	},
+   //          	title: {
+   //          		text: ''
+   //          	},
+   //          	xAxis: {
+   //          		categories: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+   //          	},
+   //          	yAxis: {
+   //          		min: 0,
+   //          		title: {
+   //          			text: '年度销售量'
+   //          		}
+   //          	},
+   //          	tooltip: {
+   //          		pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b>' +
+   //          		'({point.percentage:.0f}%)<br/>',
+			// 		//:.0f 表示保留 0 位小数，详见教程：https://www.hcharts.cn/docs/basic-labels-string-formatting
+			// 		shared: true
+			// 	},
+			// 	plotOptions: {
+			// 		column: {
+			// 			stacking: 'normal'
+			// 		}
+			// 	},
+			// 	series: [{
+			// 		name: '2018',
+			// 		data: [5, 3, 4, 7, 2, 3, 8, 5, 6, 4, 7, 9]
+			// 	}, {
+			// 		name: '2017',
+			// 		data: [2, 2, 3, 2, 1, 3, 6, 5, 4, 2, 5, 7]
+			// 	}]
+			// });
+
+			// 销售种类分布饼图
+            var chart2 = Highcharts.chart('chart2', {
+            	chart: {
+            		plotBackgroundColor: null,
+            		plotBorderWidth: null,
+            		plotShadow: false,
+            		type: 'pie'
+            	},
+            	title: {
+            		text: ''
+            	},
+            	tooltip: {
+            		pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            	},
+            	plotOptions: {
+            		pie: {
+            			allowPointSelect: true,
+            			cursor: 'pointer',
+            			dataLabels: {
+            				enabled: false
+            			},
+            			showInLegend: true
+            		}
+            	},
+            	series: [{
+            		name: '销量占比',
+            		colorByPoint: true,
+            		data: [{
+            			name: 'Chrome',
+            			y: 61.41,
+            			sliced: true,
+            			selected: true
+            		}, {
+            			name: 'Internet Explorer',
+            			y: 11.84
+            		}, {
+            			name: 'Firefox',
+            			y: 10.85
+            		}, {
+            			name: 'Edge',
+            			y: 4.67
+            		}, {
+            			name: 'Safari',
+            			y: 4.18
+            		}, {
+            			name: 'Other',
+            			y: 7.05
+            		}]
+            	}]
+            });
+
+			// 销售品牌分布饼图
+            var chart3 = Highcharts.chart('chart3', {
+            	chart: {
+            		plotBackgroundColor: null,
+            		plotBorderWidth: null,
+            		plotShadow: false,
+            		type: 'pie'
+            	},
+            	title: {
+            		text: ''
+            	},
+            	tooltip: {
+            		pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            	},
+            	plotOptions: {
+            		pie: {
+            			allowPointSelect: true,
+            			cursor: 'pointer',
+            			dataLabels: {
+            				enabled: false
+            			},
+            			showInLegend: true
+            		}
+            	},
+            	series: [{
+            		name: 'Brands',
+            		colorByPoint: true,
+            		data: [{
+            			name: 'Chrome',
+            			y: 61.41,
+            			sliced: true,
+            			selected: true
+            		}, {
+            			name: 'Internet Explorer',
+            			y: 11.84
+            		}, {
+            			name: 'Firefox',
+            			y: 10.85
+            		}, {
+            			name: 'Edge',
+            			y: 4.67
+            		}, {
+            			name: 'Safari',
+            			y: 4.18
+            		}, {
+            			name: 'Other',
+            			y: 7.05
+            		}]
+            	}]
+            });
+
+            // var chart4 = Highcharts.chart('chart4', {
+            // 	chart: {
+            // 		type: 'spline'
+            // 	},
+            // 	title: {
+            // 		text: ''
+            // 	},
+            // 	subtitle: {
+            // 		text: ''
+            // 	},
+            // 	xAxis: {
+            // 		categories: ['1', '2', '3', '4', '5月', '六月',
+            // 		'7月', '8月', '9月', '10月', '11月', '12月']
+            // 	},
+            // 	yAxis: {
+            // 		title: {
+            // 			text: '销量'
+            // 		},
+            // 		labels: {
+            // 			formatter: function () {
+            // 				return this.value + '°';
+            // 			}
+            // 		}
+            // 	},
+            // 	tooltip: {
+            // 		crosshairs: true,
+            // 		shared: true
+            // 	},
+            // 	plotOptions: {
+            // 		spline: {
+            // 			marker: {
+            // 				radius: 4,
+            // 				lineColor: '#666666',
+            // 				lineWidth: 1
+            // 			}
+            // 		}
+            // 	},
+            // 	series: [{
+            // 		name: '化妆工具',
+            // 		marker: {
+            // 			symbol: 'square'
+            // 		},
+            // 		data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, {
+            // 			y: 26.5,
+            // 			marker: {
+            // 				symbol: ''
+            // 			}
+            // 		}, 23.3, 18.3, 13.9, 9.6]
+            // 	}, {
+            // 		name: '其他',
+            // 		marker: {
+            // 			symbol: 'diamond'
+            // 		},
+            // 		data: [{
+            // 			y: 3.9,
+            // 			marker: {
+            // 				symbol: ''
+            // 			}
+            // 		}, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+            // 	}]
+            // });
+
+			// 刷宝宝商城日销售额走势图
+            var chart = null;
+            $.getJSON('https://data.jianshukeji.com/jsonp?filename=json/usdeur.json&callback=?', function (data) {
+            	chart = Highcharts.chart('chart5', {
+            		chart: {
+            			zoomType: 'x'
+            		},
+            		title: {
+            			text: '刷宝宝商城日销售额走势图'
+            		},
+            		subtitle: {
+            			text: document.ontouchstart === undefined ?
+            			'鼠标拖动可以进行缩放' : '手势操作进行缩放'
+            		},
+            		xAxis: {
+            			type: 'datetime',
+            			dateTimeLabelFormats: {
+            				millisecond: '%H:%M:%S.%L',
+            				second: '%H:%M:%S',
+            				minute: '%H:%M',
+            				hour: '%H:%M',
+            				day: '%m-%d',
+            				week: '%m-%d',
+            				month: '%Y-%m',
+            				year: '%Y'
+            			}
+            		},
+            		tooltip: {
+            			dateTimeLabelFormats: {
+            				millisecond: '%H:%M:%S.%L',
+            				second: '%H:%M:%S',
+            				minute: '%H:%M',
+            				hour: '%H:%M',
+            				day: '%Y-%m-%d',
+            				week: '%m-%d',
+            				month: '%Y-%m',
+            				year: '%Y'
+            			}
+            		},
+            		yAxis: {
+            			title: {
+            				text: '销售额'
+            			}
+            		},
+            		legend: {
+            			enabled: false
+            		},
+            		plotOptions: {
+            			area: {
+            				fillColor: {
+            					linearGradient: {
+            						x1: 0,
+            						y1: 0,
+            						x2: 0,
+            						y2: 1
+            					},
+            					stops: [
+            					[0, Highcharts.getOptions().colors[0]],
+            					[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+            					]
+            				},
+            				marker: {
+            					radius: 2
+            				},
+            				lineWidth: 1,
+            				states: {
+            					hover: {
+            						lineWidth: 1
+            					}
+            				},
+            				threshold: null
+            			}
+            		},
+            		series: [{
+            			type: 'area',
+            			name: '当日销售额',
+            			data: data
+            		}]
+            	});
+            });
+
+            // 每月销售总量柱形图
+            var chart = Highcharts.chart('chart6',{
+            	chart: {
+            		type: 'column',
+            		events: {
+            			selection: function(event){
+            				alert(event.xAxis[0]);
+            			}
+            		}
+            	},
+            	title: {
+            		text: '每月销售总量柱形图'
+            	},
+            	subtitle: {
+            		text: '每月更新'
+            	},
+            	xAxis: {
+            		categories: [
+            		'一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月',
+            		],
+            		crosshair: true
+            	},
+            	yAxis: {
+            		min: 0,
+            		title: {
+            			text: '销售量 '
+            		}
+            	},
+            	tooltip: {
+					// head + 每个 point + footer 拼接成完整的 table
+					headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+					pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+					'<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+					footerFormat: '</table>',
+					shared: true,
+					useHTML: true
+				},
+				plotOptions: {
+					column: {
+						borderWidth: 0
+					},
+					series:{
+						cursor:'pointer',
+						events:{
+							click:function(e){
+								alert(
+									this.name+"\n"+e.point.category
+									);
+							}
+						}
+					}
+				},
+				// series: [{
+				// 	name: '销售总量',
+				// 	data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+				// }, {
+				// 	name: '销售总额（万元）',
+				// 	data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+				// }]
+				series: [{
+					name: '销售总量',
+					data: [0, 0, 34.5, 39.7, 52.6, 75.5, 0, 0, 0, 0, 0, 0]
+				}, {
+					name: '销售总额（万元）',
+					data: [0, 0, 98.5, 93.4, 106.0, 84.5, 0, 0, 0, 0, 0, 0]
+				}]
+			});
+
+			// 每月订单总量柱形图
+            var chart = Highcharts.chart('chart7',{
+            	chart: {
+            		type: 'column'
+            	},
+            	colors: [
+            		'#f7a35c', '#8085e9', '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'
+            	],
+            	title: {
+            		text: '每月订单总量柱形图'
+            	},
+            	subtitle: {
+            		text: '每月更新'
+            	},
+            	xAxis: {
+            		categories: [
+            		'一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'
+            		],
+            		crosshair: true
+            	},
+            	yAxis: {
+            		min: 0,
+            		title: {
+            			text: '订单量 '
+            		}
+            	},
+            	tooltip: {
+					// head + 每个 point + footer 拼接成完整的 table
+					headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+					pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+					'<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+					footerFormat: '</table>',
+					shared: true,
+					useHTML: true
+				},
+				plotOptions: {
+					column: {
+						borderWidth: 0
+					},
+					series:{
+						cursor:'pointer',
+						events:{
+							click:function(e){
+								alert(
+									this.name+"\n"+e.point.category
+									);
+							}
+						}
+					}
+				},
+				series: [{
+					name: '订单总量',
+					data: [49, 71, 106, 129, 144, 176, 135, 148, 216, 194, 95, 54]
+				}, {
+					name: '已成交订单',
+					data: [46, 65, 106, 110, 142, 176, 135, 144, 216, 193, 95, 51]
+				}]
+			});
+	</script>
+</body>
+</html>

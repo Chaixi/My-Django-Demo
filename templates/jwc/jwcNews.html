@@ -1,0 +1,29 @@
+{% with source='jwc' %}
+{% for item in jwc_li %}
+<div class="row">
+    <div class="col-md-10">
+        <a data-index="{{ source }}_{{ item.id }}" title="{{ item.title }}" target="_blank" href="{{ item.link }}">
+            <!--data-toggle="modal" data-target="#myModal"-->
+            {% if item.title|length >= 31 %}
+            {{ item.title|slice:"30" }}…
+            {% else %}
+            {{ item.title }}
+            {% endif %}
+        </a>
+        <!--<a href="{{ item.link }}" target="_blank" title="{{ item.title }}">-->
+        <!--{% if item.title|length >= 20 %}-->
+        <!--{{ item.title|slice:"19" }} …-->
+        <!--{% else %}-->
+        <!--{{ item.title }}-->
+        <!--{% endif %}-->
+        <!--</a>-->
+        {% if item.read_status == 1 %}
+        <span class="label label-warning" data-index="{{ source }}_{{ item.id }}">new</span>
+        {% endif %}
+    </div>
+    <div class="col-md-2" data-index="{{ source }}_{{ item.id }}">
+        {{ item.release_time|date:'Y-m-d' }}
+    </div>
+</div>
+{% endfor %}
+{% endwith %}
